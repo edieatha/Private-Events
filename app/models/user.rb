@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_many :created_events, foreign_key: :event_creator_id
+  has_many :attended_events, through: :created_events
+  
   attr_writer :login
 
   def login
