@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :created_events, foreign_key: :event_creator_id
   has_many :attended_events, through: :created_events
-  
+
   attr_writer :login
 
   def login
@@ -15,15 +15,8 @@ class User < ApplicationRecord
 
     if login == conditions.delete(:login)
       where(conditions.to_h).where(['lower(username) = :value OR lower(email) = :value', { value: login.downcase }])
-    else 
-      if conditions[:username].nil?
-        where(conditions).first
-      else
-        where(username: conditions[:username]).first
-      end
-    
-      # elsif conditions.key?(:username) || conditions.has_key(:email)
-    #   where(conditions.to_h).first
+    elsif conditions.key?(:username) || conditions.key(:email) 
+      where(conditions).first
     end
   end
 

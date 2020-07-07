@@ -1,0 +1,8 @@
+<h1>Create New Event</h1>
+
+<%= form_for(@events, inline_errors: true, url:events_new_path) do |f| %>
+	<%= f.text_field :title %>
+	<%= f.text_field :descriptiom %>
+	<%= f.date_field :date %>
+	<%= f.submit "Create Event" %>
+<% end %>
