@@ -1,6 +1,12 @@
 <h1>All events</h1>
 <ul id='events'>
     <% @events.each do |e| %>
-        <li><%= e.content %> </li>
+        <li><%= e.user.email %> 
+        </li>
     <% end %>
 </ul>
+
+
+<%= link_to 'Sign In', new_user_session_path, method: :get %>
+<%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+<%= link_to 'create event', new_event_path %>

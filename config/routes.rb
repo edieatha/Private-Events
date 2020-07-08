@@ -1,5 +1,7 @@
 Rails.application.routes.draw do 
-  resources :events
   devise_for :users, controllers: { sessions: 'users/sessions'}
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  root 'events#index'
+  resources :events, only: %i[index create new]
+
 end

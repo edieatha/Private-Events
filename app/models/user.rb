@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :events
+  has_many :created_events, foreign_key: 'creator_id', class_name: 'Event'
   validates :email, length: {in: 4..30}, presence: true, uniqueness: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
