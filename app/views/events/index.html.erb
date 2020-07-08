@@ -1,7 +1,7 @@
 <h1>All events</h1>
 <ul id='events'>
     <% @events.each do |e| %>
-        <li><%= e.user.email %> 
+        <li><%= e.creator.email %> 
         </li>
     <% end %>
 </ul>

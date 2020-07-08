@@ -15,7 +15,8 @@ ActiveRecord::Schema.define(version: 2020_07_08_202657) do
   create_table "events", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.date "date"
+    t.datetime "date"
+    t.integer "creator_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
