@@ -3,3 +3,8 @@
   <%= @event.description %>
 </p>
 <%= @event.date %>
+<h2>Attendees</h2>
+<% @attendees.each do |at| %>
+  <% id = at.event_attendee_id %>
+  <%= User.find(params[:id]).email%>
+<% end %>

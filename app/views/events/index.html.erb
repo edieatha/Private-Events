@@ -3,6 +3,7 @@
     <% @events.each do |event| %>
       <li><%= link_to event.title, event %>
         <%= event.date %>
+        <%= link_to 'Attend', event_attend_path(event.id), method: :post %>
         </li>
     <% end %>
 </ul>

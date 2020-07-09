@@ -1,0 +1,7 @@
+<h1>All attendees</h1>
+<ul> 
+    <%= @event_attendee.each do |attendee| %>
+        <li><%= attendee.event_attendee_id %></li>
+    <% end %>
+</ul>
+    
