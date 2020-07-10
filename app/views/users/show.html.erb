@@ -1,0 +1,9 @@
+<%= @user.email%>
+<h1>Events you are attending</h1>
+<ul>
+<% @invitations.each do |invite| %>
+    <%id = invite.attended_event_id%>
+    <%event = Event.where(id: id).first%>
+    <li><%= event.even_name%></li>
+<%end%>
+</ul>
