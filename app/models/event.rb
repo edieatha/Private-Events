@@ -4,4 +4,7 @@ class Event < ApplicationRecord
   has_many :invitations, foreign_key: 'attended_event_id'
 
   validates :description, presence: true
+
+  scope :past_events, -> { where('date < ?',DateTime.now)}
+  scope :upcoming_events, -> { where('date > ?',DateTime.now)}
 end

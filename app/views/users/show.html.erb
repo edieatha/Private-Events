@@ -3,7 +3,37 @@
 <ul>
 <% @invitations.each do |invite| %>
     <%id = invite.attended_event_id%>
-    <%event = Event.where(id: id).first%>
-    <li><%= event.even_name%></li>
+    <%event = Event.where(id: id).upcoming_events.first %>
+    <%if event.blank? == false %>
+        <li>
+
+        <%= event.even_name%></br>
+        <%= event.description %></br>
+        <%= event.date%></br>
+        </li>
+    <% end %>
+    
+   
+<%end%>
+
+
+</ul>
+
+<h1>Events you attended</h1>
+<ul>
+<% @invitations.each do |invite| %>
+    <%id = invite.attended_event_id%>
+    <%event = Event.where(id: id).past_events.first %>
+    <%if event.blank? == false %>
+        <li>
+
+        <%= event.even_name%></br>
+        <%= event.description %></br>
+        <%= event.date%></br>
+        </li>
+    <% end %>
+    
+   
 <%end%>
 </ul>
+
