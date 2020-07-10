@@ -5,12 +5,10 @@
 <%= @event.date %>
 <h2>Attendees</h2>
 <ul>
-  <%= @attendees.each do |at| %>
-  <% id = at.attendee_id %>
-  <li><%=User.where(id: id).first.email %></li>
-  
-
- 
+  <% @attendees.each do |at| %>
+  <%id = at.attendee_id %>
+  <% user = User.where(id: id).first%>
+  <li><%= user.email %></li>
   <% end %>
 </ul>
 
