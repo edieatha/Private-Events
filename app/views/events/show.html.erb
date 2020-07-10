@@ -4,7 +4,15 @@
 </p>
 <%= @event.date %>
 <h2>Attendees</h2>
-<% @attendees.each do |at| %>
+<ul>
+  <%= @attendees.each do |at| %>
   <% id = at.attendee_id %>
-  <%= User.find(params[:id]).email%>
-<% end %>
+  <li><%=User.where(id: id).first.email %></li>
+  
+
+ 
+  <% end %>
+</ul>
+
+ 
+
