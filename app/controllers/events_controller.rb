@@ -20,7 +20,7 @@ class EventsController < ApplicationController
   end
   def attend
     @event = Event.find(params[:event_id])
-    @event.event_attendees.new(event_attendee_id: current_user.id,attended_event_id: params[:event_id])
+    @event.invitations.new(attendee_id: current_user.id,attended_event_id: params[:event_id])
     
     @event.save
     
@@ -28,7 +28,7 @@ class EventsController < ApplicationController
   end
   def show
     @event = Event.find(params[:id])
-    @attendees = @event.event_attendees
+    @attendees = @event.invitations
   end
   
   def event_params

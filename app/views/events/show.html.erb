@@ -1,10 +1,10 @@
-<h1><%= @event.title %></h1>
+<h1><%= @event.even_name %></h1>
 <p>
   <%= @event.description %>
 </p>
 <%= @event.date %>
 <h2>Attendees</h2>
 <% @attendees.each do |at| %>
-  <% id = at.event_attendee_id %>
+  <% id = at.attendee_id %>
   <%= User.find(params[:id]).email%>
 <% end %>

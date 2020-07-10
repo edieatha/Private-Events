@@ -1,7 +1,7 @@
 <h1>All events</h1>
 <ul id='events'>
     <% @events.each do |event| %>
-      <li><%= link_to event.title, event %>
+      <li><%= link_to event.even_name, event %>
         <%= event.date %>
         <%= link_to 'Attend', event_attend_path(event.id), method: :post %>
         </li>
