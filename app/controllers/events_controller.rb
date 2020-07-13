@@ -21,19 +21,19 @@ class EventsController < ApplicationController
   def attend
     @event = Event.find(params[:event_id])
     @event.invitations.new(attendee_id: current_user.id,attended_event_id: params[:event_id])
-    
+
     @event.save
-    
+
     redirect_to event_path(params[:event_id])
   end
   def show
     @event = Event.find(params[:id])
     @attendees = @event.invitations
   end
-  
+
   def event_params
-    params.require(:event).permit(:title, :description, :date)
+    params.require(:event).permit(:even_name, :description, :location, :date)
   end
-  
-  
+
+
 end

@@ -2,7 +2,6 @@ class User < ApplicationRecord
   has_many :created_events, foreign_key: 'creator_id', class_name: 'Event'
   has_many :event_attendees, foreign_key: 'event_attendee_id'
   has_many :attended_events, through: :event_attendees
-  
 
   validates :email, length: { in: 4..30 }, presence: true, uniqueness: true
   # Include default devise modules. Others available are:
@@ -10,11 +9,9 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
   has_many :events, foreign_key: 'creator_id', class_name: 'Event'
   has_many :attended_events, through: :invitations
   has_many :invitations, foreign_key: 'attendee_id'
 
   validates :email, length: { in: 4..30 }, presence: true, uniqueness: true
-  
 end

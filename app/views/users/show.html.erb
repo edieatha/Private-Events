@@ -1,36 +1,27 @@
 <%= @user.email%>
 <h1>Events you are attending</h1>
 <ul>
+  <% if @user.accepted == true  %>
     <%event = Event.upcoming_events.each do |event| %>
-    
-        <li>
-
-        <%= event.even_name%></br>
-        <%= event.description %></br>
-        <%= event.date%></br>
+      <li>
+      <%= event.even_name%></br>
+      <%= event.description %></br>
+      <%= event.date%></br>
         </li>
- 
     <% end %>
-
-
-
+    <% end %>
 </ul>
 
 <h1>Events you attended</h1>
 <ul>
-<ul>
     <%event = Event.past_events.each do |event| %>
-    
         <li>
-
         <%= event.even_name%></br>
-        <%= event.description %></br>
+          <%= event.description %></br>
+          <%= event.location %><br>
         <%= event.date%></br>
         </li>
- 
     <% end %>
-
-
-
 </ul>
 
+<%= link_to 'Home', events_path %>

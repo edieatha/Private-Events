@@ -1,13 +1,24 @@
-<h1>All events</h1>
+<h1>Upcoming events</h1>
 <ul id='events'>
-    <% @events.each do |event| %>
-      <li><%= link_to event.even_name, event %>
-        <%= event.date %>
-        <%= link_to 'Attend', event_attend_path(event.id), method: :post %>
-        </li>
-    <% end %>
+  <% event = Event.upcoming_events.each do |event| %>
+    <li><%= link_to event.even_name, event %>
+      <%= event.date %>
+      <%= link_to 'Attend', event_attend_path(event.id), method: :post %>
+    </li>
+  <% end %>
 </ul>
 
+<h1>Past Events</h1>
+<ul>
+  <%event = Event.past_events.each do |event| %>
+  <li>
+    <%= event.even_name%></br>
+    <%= event.description %></br>
+    <%= event.location %></br>
+    <%= event.date%></br>
+  </li>
+  <% end %>
+ </ul>
 
 <%= link_to 'Sign In', new_user_session_path, method: :get %>
 <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>

@@ -1,12 +1,14 @@
 <h1> Create a new event </h1>
 
 <%= form_for @event do |f| %>
-    <%= f.label :even_name %></br>
-    <%= f.text_field :even_name %></br>
-    <%= f.label :description %></br>
-    <%= f.text_field :description %></br>
-    <%= f.label :date %></br>
-    <%= f.date_field :date %></br>
-    <%= f.submit %>
+  <%= f.label 'Event Name' %></br>
+  <%= f.text_field :even_name %></br>
+  <%= f.label :description %></br>
+  <%= f.text_field :description %></br>
+  <%= f.label :location %></br>
+  <%= f.text_field :location %></br>
+  <%= f.label :date %></br>
+  <%= f.date_field :date %></br>
+  <%= f.submit %>
 
 <% end %>
