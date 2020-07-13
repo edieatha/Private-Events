@@ -1,4 +1,8 @@
 <%= @user.email%>
+<%= link_to 'Home', events_path %>
+<%= link_to 'Profile', users_path %>
+
+
 <h1>Events Am Attending </h1>
 <ul>
   <% current_user.attended_events.each do |event| %>
@@ -20,5 +24,4 @@
     <% end %>
 </ul>
 
-<%= link_to 'Home', events_path %>
-<%= link_to 'Profile', users_path %>
+

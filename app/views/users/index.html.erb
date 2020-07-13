@@ -1,4 +1,7 @@
+<%= link_to 'Home', events_path %>
+
 <h1>Events I Created</h1>
+<p>Click on an event title to see the details </p>
 <ul>
   <% current_user.events.each do |event| %>
     <li>
@@ -8,6 +11,7 @@
 </ul>
 
 <h1>Events Am Attending </h1>
+<p>Click on an event title to see the details </p>
 <ul>
   <% current_user.attended_events.each do |event| %>
     <li>
@@ -16,4 +20,3 @@
   <% end %>
 </ul>
 
-<%= link_to 'Home', events_path %>
