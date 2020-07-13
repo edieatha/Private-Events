@@ -6,5 +6,4 @@ class EventAttendeesController < ApplicationController
   def index
     @event_attendee = EventAttendee.all
   end
-
 end
