@@ -1,13 +1,11 @@
 <%= @user.email%>
-<h1>Events Am attending</h1>
+<h1>Events Am Attending </h1>
 <ul>
-    <% event = Event.upcoming_events.each do |event| %>
-      <li>
-      <%= event.even_name%></br>
-      <%= event.description %></br>
-      <%= event.date%></br>
-      </li>
-    <% end %>
+  <% current_user.attended_events.each do |event| %>
+    <li>
+       <%= link_to event.even_name, event_path(event) %>
+    </li> 
+  <% end %>
 </ul>
 
 <h1>Events I attended</h1>
