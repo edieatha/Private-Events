@@ -7,6 +7,6 @@ class EventAttendeesController < ApplicationController
     @event_attendee = EventAttendee.all
   end
 
-  def new 
-  end
+  def new end
+  
 end

@@ -18,11 +18,12 @@ class EventsController < ApplicationController
       render 'new'
     end
   end
+
   def attend
     @event = Event.find(params[:event_id])
     if @event.invitations.exists?(attendee_id: current_user.id, attended_event_id: params[:event_id])
       flash[:alert] = ' !!! You already signed up for this event !!!'
-    else 
+    else
       @event.invitations.new(attendee_id: current_user.id, attended_event_id: params[:event_id])
 
       @event.save
@@ -43,5 +44,4 @@ class EventsController < ApplicationController
   # def already_signed_up
   #   Invitation.exists?(attendee_id: @user, attended_event_id: @event)
   # end
-
 end
