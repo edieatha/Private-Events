@@ -1,0 +1,28 @@
+<h1>Events Am Attending</h1>
+<ul>
+  <% current_user.invitations.each do |event| %>
+    <% event_id = event.attended_event_id %>
+    <% event_details = Event.first %>
+    <li>
+       <%= event_details.even_name %>
+    </li> 
+  <% end %>
+</ul>
+
+<h1>Events I Created</h1>
+<ul>
+  <% current_user.events.each do |event| %>
+    <li>
+       <%= link_to event.even_name, event_path(event) %>
+    </li> 
+  <% end %>
+</ul>
+
+<h1>Events Am Attending Sample</h1>
+<ul>
+  <% current_user.attended_events.each do |event| %>
+    <li>
+       <%= link_to event.even_name, event_path(event) %>
+    </li> 
+  <% end %>
+</ul>

@@ -18,6 +18,7 @@ class EventsController < ApplicationController
       render 'new'
     end
   end
+  
   def attend
     @event = Event.find(params[:event_id])
     @event.invitations.new(attendee_id: current_user.id,attended_event_id: params[:event_id])
@@ -26,6 +27,7 @@ class EventsController < ApplicationController
 
     redirect_to event_path(params[:event_id])
   end
+
   def show
     @event = Event.find(params[:id])
     @attendees = @event.invitations
