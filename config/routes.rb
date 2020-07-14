@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resources :events, only: %i[index create new show] do
     post 'attend', :user
   end
-  resources :users, :only => [:show, :index]
+  resources :users, only: %i[show index]
   resources :invitations
 end
