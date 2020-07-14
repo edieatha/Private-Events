@@ -5,6 +5,6 @@ class Event < ApplicationRecord
 
   validates :description, presence: true
 
-  scope :past_events, -> { where('date < ?',DateTime.now)}
-  scope :upcoming_events, -> { where('date > ?',DateTime.now)}
+  scope :past_events, -> { where('date < ?', DateTime.now) }
+  scope :upcoming_events, -> { where('date > ?', DateTime.now) }
 end
