@@ -10,22 +10,14 @@ threads min_threads_count, max_threads_count
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 #
-<<<<<<< HEAD
-port ENV.fetch('PORT') { 3000 }
-=======
-port        ENV.fetch('PORT') { 3000 }
->>>>>>> 48187f7963bc806ec38c20b1c1bea59403baf111
+port ENV.fetch("PORT") { 3000 }
 
 # Specifies the `environment` that Puma will run in.
 #
-environment ENV.fetch('RAILS_ENV') { 'development' }
+environment ENV.fetch("RAILS_ENV") { "development" }
 
 # Specifies the `pidfile` that Puma will use.
-<<<<<<< HEAD
-pidfile ENV.fetch('PIDFILE') { "tmp/pids/server.pid" }
-=======
-pidfile ENV.fetch('PIDFILE') { 'tmp/pids/server.pid' }
->>>>>>> 48187f7963bc806ec38c20b1c1bea59403baf111
+pidfile ENV.fetch("PIDFILE") { 'tmp/pids/server.pid' }
 
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked web server processes. If using threads and workers together
