@@ -9,6 +9,17 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   
+  <nav>
+    <% if current_user %>
+      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+      <%= link_to 'create event', new_event_path %>
+      <%= link_to "Show My Events", current_user %>
+      <%= link_to 'Home', events_path %>
+      <%= link_to 'Profile', users_path %>
+    <% else %>
+      <%= link_to 'Sign In', new_user_session_path, method: :get %>
+    <% end %>
+  </nav>
   
   <body>
     <% if flash[:alert] %>
