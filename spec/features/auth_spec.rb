@@ -1,9 +1,7 @@
 require 'rails_helper'
 RSpec.describe 'Authentication features', type: :feature do
   let(:user) { User.create(username: 'Testing') }
-  # rubocop:disable Layout/LineLength
   let(:event) { Event.create(title: 'Testing event', location: 'Testing_loc', description: 'des_test', date: '2020-06-16', creator_id: user.id) }
-  # rubocop:enable Layout/LineLength
   scenario 'User can create an event if its logged in' do
     # Testing with signup path
     visit signup_path
