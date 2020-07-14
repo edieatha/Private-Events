@@ -3,7 +3,9 @@
   <% event = Event.upcoming_events.each do |event| %>
     <li><%= link_to event.even_name, event %>
       <%= event.date %>
+      <% if current_user %>
       <%= link_to 'Attend', event_attend_path(event.id), method: :post %>
+      <% end %>
     </li>
   <% end %>
 </ul>
