@@ -1,18 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
-  context 'Validation for Event model'
-  let(:user)  { User.create(id: 999, email: 'tested@test.com', password: 'testing', creaated_at: Date.now, updated_at: Date.now + 1.week) }
+  context 'Has'
+  let(:user) { User.create(id: 999, email: 'user@test.com', password: 'testing', created_at: DateTime.now, updated_at: DateTime.now + 1.week) }
+  let(:event) { Event.new(even_name: 'event name', location: 'location', description: 'description', date: 14-4-2020, creator_id: user.id) }
 
-  let(:event) { Event.new(even_name: 'event name', location: 'location', description: 'description', date: Date.now, creator_id: user.id) }
-
-  it 'VALID if with event name' do
-    expect(event).to be_valid
+  it 'VALID event name' do
+    expect(event.even_name).not_to be_empty
   end
 
-  it 'NOT VALID without event name' do
-    event.even_name = ''
-    expect(event).not_to be_valid
+  it 'VALID description' do
+    expect(event.description).not_to be_empty
+  end
+
+  it 'VALID location' do
+    expect(event.location).not_to be_empty
+  end
+
+  it 'VALID date' do
+    expect(event.location).not_to be_empty
   end
 
   context 'Assocs test for event/user models' do
