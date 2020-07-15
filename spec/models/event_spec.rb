@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Event, type: :model do
   context 'Validation for Event model'
-  let(:user) { User.new(email: 'user@test.com', password: 'testing') }
-  let(:event) { Event.new(even_name: 'event name', location: 'location', description: 'description', date: '19-04-2020', creator_id: user.id) }
+  let(:user)  { User.create(id: 999, email: 'tested@test.com', password: 'testing', creaated_at: Date.now, updated_at: Date.now + 1.week) }
+
+  let(:event) { Event.new(even_name: 'event name', location: 'location', description: 'description', date: Date.now, creator_id: user.id) }
 
   it 'VALID if with event name' do
     expect(event).to be_valid
