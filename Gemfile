@@ -47,6 +47,8 @@ group :development do
 end
 
 group :test do
+  # To include Shoul in Rspec
+  gem 'shoulda-matchers', '~> 4.0'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
