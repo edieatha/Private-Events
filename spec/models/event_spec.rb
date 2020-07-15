@@ -1,14 +1,16 @@
 require 'rails_helper'
+
 RSpec.describe Event, type: :model do
   context 'Validation for Event model'
-  let(:user) { User.create(username: 'Testing') }
-  let(:event) { Event.new(title: 'Testing event', location: 'Testing_loc', description: 'des_test', date: '2020-06-16', creator_id: user.id) }
-  it 'Event should be valid if it has a title' do
+  let(:user) { User.create(email: 'test@test.com', password: 'testing') }
+  let(:event) { Event.new(even_name: 'event name', location: 'location', description: 'description', date: '19-04-2020', creator_id: user.id) }
+
+  it 'VALID if with event name' do
     expect(event).to be_valid
   end
 
-  it 'Event shouldnt be valid if does not have a title' do
-    event.title = ''
+  it 'NOT VALID without event name' do
+    event.even_name = ''
     expect(event).not_to be_valid
   end
 
