@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Event, type: :model do
   context 'Has'
   let(:user) { User.create(id: 999, email: 'user@test.com', password: 'testing', created_at: DateTime.now, updated_at: DateTime.now + 1.week) }
-  let(:event) { Event.new(even_name: 'event name', location: 'location', description: 'description', date: 14-4-2020, creator_id: user.id) }
+  let(:event) { Event.new(even_name: 'event name', location: 'location', description: 'description', date: '14-04-2020', creator_id: user.id) }
 
   it 'VALID event name' do
     expect(event.even_name).not_to be_empty
