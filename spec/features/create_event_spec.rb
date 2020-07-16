@@ -1,28 +1,32 @@
 require 'rails_helper'
-RSpec.describe 'Creating event ', type: :feature do
-  scenario 'Valid event creation' do
-    visit signup_path
-    fill_in 'Username', with: 'testing'
-    click_on 'Create Account'
+RSpec.describe 'Creat', type: :feature do
+  let(:user) { User.create(id: 999, email: 'user@test.com', password: 'testing', created_at: DateTime.now, updated_at: DateTime.now + 1.week) }
+  let(:event) { Event.create(even_name: 'event name', location: 'location', description: 'description', date: '2020-04-19', creator_id: user.id) }
+  scenario 'Valid event!' do
+    visit new_user_session_path
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Log in'
     visit new_event_path
-    fill_in 'Title', with: 'testing-event'
-    fill_in 'Location', with: 'testing-event'
-    fill_in 'Description', with: 'testing-event'
-    fill_in 'Date', with: '2020-06-16 00:00:00'
-    click_on 'Create event'
-    expect(page).to have_current_path(root_path)
+    fill_in 'Even name', with: 'event'
+    fill_in 'Description', with: 'testing'
+    fill_in 'Location', with: 'testing'
+    fill_in 'Date', with: DateTime.now
+    click_on 'Create Event'
+    expect(page).to have_current_path(events_path)
   end
 
-  scenario 'Invalid event creation' do
-    visit signup_path
-    fill_in 'Username', with: 'testing'
-    click_on 'Create Account'
+  scenario 'Invalid event!' do
+    visit new_user_session_path
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Log in'
     visit new_event_path
-    fill_in 'Title', with: ''
-    fill_in 'Location', with: 'testing-event'
-    fill_in 'Description', with: 'testing-event'
-    fill_in 'Date', with: '2020-06-16 00:00:00'
-    click_on 'Create event'
-    expect(page).to have_current_path(new_event_path)
+    fill_in 'Even name', with: ''
+    fill_in 'Description', with: ''
+    fill_in 'Location', with: ''
+    fill_in 'Date', with: DateTime.now
+    click_on 'Create Event'
+    expect(page).to have_content('Create a new event')
   end
 end
