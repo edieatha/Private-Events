@@ -1,6 +1,6 @@
 <h1>Upcoming events</h1>
 <ul id='events'>
-  <% event = Event.upcoming_events.each do |event| %>
+  <% @upcoming_events.each do |event| %>
     <li><%= link_to event.even_name, event %>
       <%= event.date %>
       <% if current_user %>
@@ -12,7 +12,7 @@
 
 <h1>Past Events</h1>
 <ul>
-  <%event = Event.past_events.each do |event| %>
+  <% @past_events.each do |event| %>
   <li>
     <%= event.even_name%></br>
     <%= event.description %></br>

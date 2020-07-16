@@ -1,6 +1,6 @@
 <h1>Events Am Attending </h1>
 <ul>
-  <% current_user.attended_events.each do |event| %>
+  <% @attended_events.each do |event| %>
     <li>
        <%= link_to event.even_name, event_path(event) %>
     </li> 
@@ -9,7 +9,7 @@
 
 <h1>Events I attended</h1>
 <ul>
-    <%event = Event.past_events.each do |event| %>
+    <%@past_events_attended.each do |event| %>
         <li>
         <%= event.even_name%></br>
           <%= event.description %></br>
