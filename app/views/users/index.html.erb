@@ -3,7 +3,7 @@
 <h1>Events I Created</h1>
 <p>Click on an event title to see the details </p>
 <ul>
-  <% current_user.events.each do |event| %>
+  <% @created_events.each do |event| %>
     <li>
        <%= link_to event.even_name, event_path(event) %>
     </li> 
@@ -13,7 +13,7 @@
 <h1>Events Am Attending </h1>
 <p>Click on an event title to see the details </p>
 <ul>
-  <% current_user.attended_events.each do |event| %>
+  <% @attending_events.each do |event| %>
     <li>
        <%= link_to event.even_name, event_path(event) %>
     </li> 
