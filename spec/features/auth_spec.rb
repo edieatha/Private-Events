@@ -5,10 +5,10 @@ RSpec.describe 'Only Authenticated', type: :feature do
 
   scenario 'User can sign in!' do
     visit new_user_session_path
-    fill_in 'Email', with: user.email
+    fill_in 'Email address', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Log in'
-    expect(page).to have_content('Upcoming events')
+    expect(page).to have_content('Upcoming Events')
   end
 
   scenario 'User can create event!' do
@@ -23,10 +23,10 @@ RSpec.describe 'Only Authenticated', type: :feature do
 
   scenario 'A user can attend event!' do
     visit new_user_session_path
-    fill_in 'Email', with: user.email
+    fill_in 'Email address', with: user.email
     fill_in 'Password', with: user.password
     click_button 'Log in'
     expect(page).to have_current_path(root_path)
-    expect(page).to have_content('Upcoming events')
+    expect(page).to have_content('Upcoming Events')
   end
 end
