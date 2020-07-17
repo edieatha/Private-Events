@@ -4,15 +4,19 @@
   <h1>Create New Event</h1>
 
   <%= form_for @event do |f| %>
-    <%= f.label :even_name %></br>
-    <%= f.text_field :even_name %></br>
-    <%= f.label :description %></br>
-    <%= f.text_field :description %></br>
-    <%= f.label :location %></br>
-    <%= f.text_field :location %></br>
-    <%= f.label :date %></br>
-    <%= f.date_field :date %></br>
-    <%= f.submit %>
+  <div>
+    <%= f.text_field :even_name, autofocus: true, autocomplete: "even_name", class: "form-control", placeholder: "Event Name" %></br>
+  </div>
+  <div rows="3">
+    <%= f.text_field :description, autofocus: true, autocomplete: "description", class: "form-control", placeholder: "Description"  %></br>
+  </div>
+  <div>
+    <%= f.text_field :location, autofocus: true, autocomplete: "location", class: "form-control", placeholder: "Location" %></br>
+  </div>
+  <div>
+    <%= f.date_field :date, autofocus: true, autocomplete: "date", class: "form-control", placeholder: "Date" %></br>
+  </div>
+    <%= f.submit class: "btn btn-lg btn-primary btn-block" %>
 
   <% end %>
 
