@@ -8,11 +8,11 @@ RSpec.describe 'Creat', type: :feature do
     fill_in 'Password', with: user.password
     click_button 'Log in'
     visit new_event_path
-    fill_in :placeholder => 'Event Name', with: 'event'
+    fill_in placeholder: 'Event Name', with: 'event'
     fill_in 'Description', with: 'testing'
     fill_in 'Location', with: 'testing'
     fill_in 'Date', with: DateTime.now
-    click_on :class => 'btn-block'
+    click_on class: 'btn-block'
     expect(page).to have_current_path(events_path)
   end
 
@@ -22,11 +22,11 @@ RSpec.describe 'Creat', type: :feature do
     fill_in 'Password', with: user.password
     click_button 'Log in'
     visit new_event_path
-    fill_in :placeholder => 'Event Name', with: ''
+    fill_in placeholder: 'Event Name', with: ''
     fill_in 'Description', with: ''
     fill_in 'Location', with: ''
     fill_in 'Date', with: DateTime.now
-    click_on :class => 'btn-block'
+    click_on class: 'btn-block'
     expect(page).to have_content('Create New Event')
   end
 end
