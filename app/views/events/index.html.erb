@@ -1,25 +1,32 @@
-<h1>Upcoming events</h1>
-<ul id='events'>
-  <% @upcoming_events.each do |event| %>
-    <li><%= link_to event.even_name, event %>
-      <%= event.date %>
-      <% if current_user %>
-      <%= link_to 'Attend', event_attend_path(event.id), method: :post %>
-      <% end %>
+<div class="d-flex justify-content-center">
+  <div class="card col-sm-5 m-3">
+    <h1>Upcoming events</h1>
+      <ul id='events' class="mb-3">
+        <% @upcoming_events.each do |event| %>
+          <li  class="mb-3  justify-content">
+            <%= link_to event.even_name, event %><br>
+            <%= event.date %>
+            <% if current_user %>
+            <%= link_to 'Attend', event_attend_path(event.id), method: :post, class: "btn btn-primary btn-sm" %>
+          <% end %>
+          </li>
+        <% end %>
+      </ul>
+  </div>
+  </br>
+  <div class="card col-sm-5 m-3">
+  <h1>Past Events</h1>
+  <ul>
+    <% @past_events.each do |event| %>
+    <li>
+      <%= event.even_name%></br>
+      <%= event.description %></br>
+      <%= event.location %></br>
+      <%= event.date%></br>
     </li>
-  <% end %>
-</ul>
-
-<h1>Past Events</h1>
-<ul>
-  <% @past_events.each do |event| %>
-  <li>
-    <%= event.even_name%></br>
-    <%= event.description %></br>
-    <%= event.location %></br>
-    <%= event.date%></br>
-  </li>
-  <% end %>
- </ul>
+    <% end %>
+  </ul>
+  </div>
+</div>
 
 

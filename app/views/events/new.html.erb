@@ -1,14 +1,21 @@
-<h1> Create a new event </h1>
+<div class="row text-center justify-content-center">
+  <div class="col-sm-4 my-5">
 
-<%= form_for @event do |f| %>
-  <%= f.label :even_name %></br>
-  <%= f.text_field :even_name %></br>
-  <%= f.label :description %></br>
-  <%= f.text_field :description %></br>
-  <%= f.label :location %></br>
-  <%= f.text_field :location %></br>
-  <%= f.label :date %></br>
-  <%= f.date_field :date %></br>
-  <%= f.submit %>
+  <h1>Create New Event</h1>
 
-<% end %>
+  <%= form_for @event do |f| %>
+    <%= f.label :even_name %></br>
+    <%= f.text_field :even_name %></br>
+    <%= f.label :description %></br>
+    <%= f.text_field :description %></br>
+    <%= f.label :location %></br>
+    <%= f.text_field :location %></br>
+    <%= f.label :date %></br>
+    <%= f.date_field :date %></br>
+    <%= f.submit %>
+
+  <% end %>
+
+  </div>
+</div>
+

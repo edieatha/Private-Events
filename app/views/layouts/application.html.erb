@@ -7,17 +7,21 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   </head>
   
-  <nav>
+  <nav  class="navbar navbar-expand-md navbar-light bg-light justify-content-between" >
+  <span class="navbar-brand btn btn-outline-light">Private Events</span>
     <% if current_user %>
-      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-      <%= link_to 'create event', new_event_path %>
-      <%= link_to "Show My Events", current_user %>
-      <%= link_to 'Home', events_path %>
+      <%= link_to 'Home', events_path, clas: "nav-item nav-link" %>      
+      <%= link_to "My Events", current_user %>      
+      <%= link_to 'Create Event', new_event_path %>
       <%= link_to 'Profile', users_path %>
+      <%= current_user.email %>
+      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "btn btn-danger"  %> 
     <% else %>
-      <%= link_to 'Sign In', new_user_session_path, method: :get %>
+      <%= link_to 'Sign In', new_user_session_path, method: :get, class: "btn btn-info mr-2" %>
     <% end %>
   </nav>
   
