@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-center">
+  <div class="card col-sm-5 m-3">
+    <h1>Upcoming Events</h1>
+      <ul id='events' class="list-unstyled">
+        <% @upcoming_events.each do |event| %>
+          <li  class="mb-3  justify-content">
+            <%= link_to event.even_name, event %>
+            @<%= event.location %>
+            Date:<%= event.date %>
+            <% if current_user %>
+            <%= link_to 'Attend', event_attend_path(event.id), method: :post, class: "btn btn-primary btn-sm" %>
+          <% end %>
+          </li>
+        <% end %>
+      </ul>
+  </div>
+  </br>
+  <div class="card col-sm-5 m-3">
+  <h1>Past Events</h1>
+  <ul class="list-unstyled">
+    <% @past_events.each do |event| %>
+    <li>
+      <%= link_to event.even_name%>
+      @<%= event.location %>
+      Date:<%= event.date %>
+    </li>
+    <% end %>
+  </ul>
+  </div>
+</div>
+
+

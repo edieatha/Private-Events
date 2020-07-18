@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-center">
+  <div class="card col-sm-5 m-3">
+    <h1><%= @event.even_name %></h1>
+    <p><%= @event.description %></br>
+    <strong>Location: </strong><%= @event.location %></br>
+    <strong>Date & Time: </strong><%= @event.date %></p>
+    <h2>Attendees</h2>
+    <ul class="list-unstyled">
+      <% @attendees.each do |at| %>
+      <%id = at.attendee_id %>
+      <% user = User.where(id: id).first%>
+      <li><%= user.email %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+ 
+

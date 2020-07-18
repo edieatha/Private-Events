@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-center">
+  <div class="card col-sm-5 m-3">
+    <h1>Events Am Attending </h1>
+    <ul class="list-unstyled">
+      <% @attended_events.each do |event| %>
+        <li>
+           <%= link_to event.even_name, event_path(event) %>
+           @<%= event.location %>
+           Date:<%= event.date %>
+        </li> 
+      <% end %>
+    </ul>
+
+    <h1>Events I attended</h1>
+    <ul class="list-unstyled">
+        <%@past_events_attended.each do |event| %>
+            <li>
+            <%= link_to event.even_name%>
+            @<%= event.location %>
+            Date:<%= event.date %>
+            </li>
+        <% end %>
+    </ul>
+  </div>
+</div>
+
