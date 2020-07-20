@@ -15,6 +15,14 @@
 
 In this project, you’ll be building a site similar to Eventbrite. Users can create events and then manage user signups. Events take place on a specific date and on a particular location.
 
+## Live Demo
+[Live Demo Link](https://floating-fjord-97527.herokuapp.com)
+
+![screenshoot](img01.png)
+![screenshoot](img02.png)
+![screenshoot](img3.png)
+![screenshoot](img4.png)
+
 <!-- INSTALLATION -->
 ## Installation
 
